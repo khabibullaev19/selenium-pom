@@ -1,0 +1,36 @@
+package com.saucedemo.pages;
+
+import org.openqa.selenium.By;
+
+public class LoginPage extends BasePage{
+
+    private By userNameField = By.id("user-name");
+    private By passwordField = By.id("password");
+    private By loginButton = By.id("login-button");
+    private By errorMessage = By.tagName("h3");
+
+    public void setUserName(String userName){
+        set(userNameField,userName);
+    }
+
+    public void setPassword(String password) {
+        set(passwordField,password);
+    }
+
+    // transition method
+    public ProductsPage clickLoginButton() {
+        click(loginButton);
+        return new ProductsPage();
+    }
+
+    public ProductsPage logIntoApplication(String username,String password) {
+        setUserName(username);
+        setPassword(password);
+        return clickLoginButton();
+    }
+
+    public String getErrorMessage(){
+        return find(errorMessage).getText();
+    }
+
+}
