@@ -17,10 +17,12 @@ public class SelectDropDownTest extends BaseTest {
         selectMenuPage.selectStandardMulti(2);
 
         selectMenuPage.deselectStandardMulti("saab");
+
         List<String> actualSelectedOptions = selectMenuPage.getAllSelectedStandardMultiOptions();
         Assert.assertTrue(actualSelectedOptions.contains("Volvo"));
         Assert.assertTrue(actualSelectedOptions.contains("Opel"));
         Assert.assertTrue(actualSelectedOptions.contains("Audi"));
+
         Assert.assertFalse(actualSelectedOptions.contains("Saab"),
                 "Saab is selected as an option!");
     }
